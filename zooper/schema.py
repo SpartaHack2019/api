@@ -16,6 +16,20 @@ class PostPaginatedType(graphene.ObjectType):
     has_prev = graphene.Boolean()
     objects = graphene.List(PostType)
 
+class CreatePost(graphene.Mutation):
+    description = graphene.String()
+    adoption = graphene.Boolean()
+    adoption_url = graphene.String()
+
+    class Arguments:
+        description = graphene.String()
+        adoption = graphene.Boolean()
+        adoption_url = graphene.String()
+
+    def mutate(self, info, description):
+        post = Post(description=description)
+
+
 class Query(object):
     all_posts = graphene.List(PostType)
     posts = graphene.Field(PostPaginatedType, page=graphene.Int())

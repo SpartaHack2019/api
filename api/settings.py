@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'graphene_django',
+    'graphene_file_upload',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
