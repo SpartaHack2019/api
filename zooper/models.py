@@ -7,8 +7,8 @@ from django.utils.safestring import mark_safe
 
 class Post(models.Model):
     image = models.ImageField(upload_to='images/')
-    likes = models.IntegerField()
-    dislikes = models.IntegerField()
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
     description = models.TextField()
     adoption = models.BooleanField(default=False)
     adoption_url = models.CharField(max_length=100, null=True, blank=True)

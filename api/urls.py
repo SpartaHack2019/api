@@ -16,7 +16,7 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 
-from graphene_django.views import GraphQLView
+from graphene_file_upload.django import FileUploadGraphQLView
 from django.views.decorators.csrf import csrf_exempt
 from .schema import schema
 
@@ -25,6 +25,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
+    path('graphql', csrf_exempt(FileUploadGraphQLView.as_view(graphiql=True))),
     path('images/', include('zooper.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
